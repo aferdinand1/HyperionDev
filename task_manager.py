@@ -286,6 +286,9 @@ def task_select():
                     elif task_select_option == "c":
                         task_select_option_boolean = True
                         mark_complete(task_option)
+                    elif task_select_option == "-1":
+                        print("\nYou will now return to the main menu.")
+                        task_select_option_boolean = True
                     else:
                         print("\nYou have selected an incorrect option. Please try again.")
                         task_select_option = input("\nWould you like to mark the task as complete (c) or edit the task (e)?: ").lower()
