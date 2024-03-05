@@ -277,7 +277,7 @@ def task_select():
                     print(user_task_parts[int(user_task_counter)])
                     user_task_counter += 1
                 # Add the option to edit the task or mark as complete
-                task_select_option = input("Would you like to mark the task as complete (c) or edit the task (e)?: ").lower()
+                task_select_option = input("Would you like to mark the task as complete (c) or edit the task (e) (press -1 to exit)?: ").lower()
                 task_select_option_boolean = False
                 while task_select_option_boolean is False:
                     if task_select_option == "e":
@@ -311,7 +311,7 @@ def task_edit(task_option):
         print("\nThis task has been marked as complete and cannot be edited.")
     else:
         edit_choice_boolean = False
-        edit_choice = input("\nWould you like to edit the asigned username (u) or the due date (d)?: ").lower()
+        edit_choice = input("\nWould you like to edit the asigned username (u) or the due date (d) (press -1 to exit)?: ").lower()
         while edit_choice_boolean is False:
             if edit_choice == "u":
                 edit_choice_boolean = True
@@ -358,6 +358,9 @@ def task_edit(task_option):
                 with open('tasks.txt', 'w') as file:
                     file.write(task_data_update)
                 print("\nThe due date has now been updated.")
+            elif edit_choice == "-1":
+                edit_choice_boolean = True
+                print("You will now be returned to the main menu.")
             else:
                 print("\nYou have entered an incorrect option. Please try again.")
                 edit_choice = input("\nWould you like to edit the asigned username (u) or the due date (d)?: ").lower()
